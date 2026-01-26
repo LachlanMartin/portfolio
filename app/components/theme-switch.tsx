@@ -3,7 +3,7 @@ import * as React from "react";
 import { useTheme } from "next-themes";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import type { ThemeProviderProps } from "next-themes";
-import { FaCircleHalfStroke } from "react-icons/fa6";
+import { FaSun, FaMoon } from "react-icons/fa6";
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
@@ -18,31 +18,28 @@ export const ThemeSwitch: React.FC = () => {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return (
-      <FaCircleHalfStroke
-        className="h-[14px] w-[14px] text-[#1c1c1c]"
-        aria-hidden="true"
-      />
-    );
-  }
-
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
+  // Return button with same structure to prevent hydration mismatch
+  // Use light theme icon as default until mounted
   return (
     <button
       id="theme-toggle"
-      aria-label={`${theme} mode`}
+      aria-label={mounted ? `${theme} mode` : "Toggle theme"}
       onClick={toggleTheme}
       className="flex items-center justify-center transition-opacity duration-300 hover:opacity-90 cursor-pointer"
     >
-      <FaCircleHalfStroke
-        className={`h-[14px] w-[14px] ${
-          theme === "dark" ? "text-[#D4D4D4]" : "text-[#1c1c1c]"
-        }`}
-      />
+      {!mounted || theme === "light" ? (
+        <FaSun
+          className="h-[14px] w-[14px] text-[#1c1c1c]"
+        />
+      ) : (
+        <FaMoon
+          className="h-[14px] w-[14px] text-[#D4D4D4]"
+        />
+      )}
     </button>
   );
 };
