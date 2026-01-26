@@ -19,6 +19,6 @@ export const socialLinks = {
   youtube: "https://www.youtube.com/@LachlanMartinWasTaken",
   // Hobbies
   spotify: "https://open.spotify.com/user/rocklock2000",
-  strava: "https://www.strava.com/athletes/142408948",
+  strava: "https://www.strava.com/athletes/lachlanmartin",
   letterboxd: "https://letterboxd.com/LachlanDMartin/",
 };
