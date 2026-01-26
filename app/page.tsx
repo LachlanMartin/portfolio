@@ -66,6 +66,26 @@ export default function Page() {
           </Link>
         ))}
       </nav>
+      <div className="mt-8">
+        <Image
+          src="/Personal_Brand_Logo-Light-removebg-preview.png"
+          alt="Personal Brand Logo"
+          width={48}
+          height={48}
+          className="dark:hidden"
+          unoptimized
+          priority
+        />
+        <Image
+          src="/Personal_Brand_Logo-Dark-removebg-preview.png"
+          alt="Personal Brand Logo"
+          width={48}
+          height={48}
+          className="hidden dark:block"
+          unoptimized
+          priority
+        />
+      </div>
     </section>
   );
 }
