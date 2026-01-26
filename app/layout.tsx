@@ -1,12 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "./components/theme-switch";
 import { metaData } from "./lib/config";
 
-const inter = Inter({ subsets: ["latin"] });
+const robotoMono = Roboto_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(metaData.baseUrl),
@@ -71,7 +71,7 @@ export default function RootLayout({
           title="JSON Feed"
         />
       </head>
-      <body suppressHydrationWarning className={`${inter.className} antialiased flex flex-col items-center justify-center mx-auto min-h-screen`}>
+      <body suppressHydrationWarning className={`${robotoMono.className} antialiased flex flex-col items-center justify-center mx-auto min-h-screen`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
