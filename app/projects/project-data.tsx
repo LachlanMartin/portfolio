@@ -3,6 +3,7 @@ export interface Project {
   year: number;
   description: string;
   url: string;
+  image?: string;
 }
 
 export const projects: Project[] = [
