@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Roboto_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { ThemeProvider } from "./components/theme-switch";
+import { ThemeProvider, ThemeSwitch } from "./components/theme-switch";
 import { metaData } from "./lib/config";
 
 const robotoMono = Roboto_Mono({ subsets: ["latin"] });
@@ -79,6 +79,9 @@ export default function RootLayout({
           disableTransitionOnChange
           storageKey="theme-preference"
         >
+          <div className="fixed top-4 right-4 z-50">
+            <ThemeSwitch />
+          </div>
           <main className="flex-auto min-w-0 flex flex-col items-center justify-center px-6 sm:px-4 md:px-0 max-w-[624px] w-full py-8">
             {children}
             <Analytics />

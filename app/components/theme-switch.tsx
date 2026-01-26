@@ -27,17 +27,18 @@ export const ThemeSwitch: React.FC = () => {
   return (
     <button
       id="theme-toggle"
-      aria-label={mounted ? `${theme} mode` : "Toggle theme"}
+      aria-label={mounted ? `Switch to ${theme === "light" ? "dark" : "light"} mode` : "Toggle theme"}
       onClick={toggleTheme}
-      className="flex items-center justify-center transition-opacity duration-300 hover:opacity-90 cursor-pointer"
+      className="flex items-center justify-center w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md"
+      title={mounted ? `Switch to ${theme === "light" ? "dark" : "light"} mode` : "Toggle theme"}
     >
       {!mounted || theme === "light" ? (
         <FaSun
-          className="h-[14px] w-[14px] text-[#1c1c1c]"
+          className="h-5 w-5 text-neutral-700 dark:text-neutral-300"
         />
       ) : (
         <FaMoon
-          className="h-[14px] w-[14px] text-[#D4D4D4]"
+          className="h-5 w-5 text-neutral-700 dark:text-neutral-300"
         />
       )}
     </button>
