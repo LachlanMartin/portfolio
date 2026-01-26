@@ -1,22 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { metaData, socialLinks } from "./lib/config";
 import {
-  FaXTwitter,
   FaGithub,
   FaInstagram,
-  FaRss,
   FaLinkedinIn,
+  FaYoutube,
+  FaSpotify,
 } from "react-icons/fa6";
+import { FaStrava } from "react-icons/fa";
 import { TbMailFilled } from "react-icons/tb";
-
-const navItems = {
-  "/blog": { name: "Blog" },
-  "/projects": { name: "Projects" },
-  "/photos": { name: "Photos" },
-};
+import { SiThreads, SiLetterboxd } from "react-icons/si";
 
 function SocialLink({ href, icon: Icon }) {
   return (
@@ -45,27 +40,48 @@ export default function Page() {
       </p>
       <header className="mb-8 text-center">
         <div className="flex text-xl gap-4 justify-center transition-opacity duration-300 hover:opacity-90">
-          <SocialLink href={socialLinks.twitter} icon={FaXTwitter} />
           <SocialLink href={socialLinks.github} icon={FaGithub} />
           <SocialLink href={socialLinks.instagram} icon={FaInstagram} />
           <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} />
+          <SocialLink href={socialLinks.youtube} icon={FaYoutube} />
+          <SocialLink href={socialLinks.strava} icon={FaStrava} />
+          <SocialLink href={socialLinks.spotify} icon={FaSpotify} />
+          <SocialLink href={socialLinks.threads} icon={SiThreads} />
+          <SocialLink href={socialLinks.letterboxd} icon={SiLetterboxd} />
           <SocialLink href={socialLinks.email} icon={TbMailFilled} />
-          <a href="/rss.xml" target="_self">
-            <FaRss />
-          </a>
         </div>
       </header>
-      <nav className="flex flex-col gap-4 items-center">
-        {Object.entries(navItems).map(([path, { name }]) => (
-          <Link
-            key={path}
-            href={path}
-            className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 text-base"
-          >
-            {name}
-          </Link>
-        ))}
-      </nav>
+      <div className="mt-12 w-full">
+        <div className="flex flex-col gap-16">
+          <div className="flex flex-row items-center gap-6">
+            <div className="flex flex-col space-y-1 text-left w-1/2">
+              <h3 className="text-xl font-medium text-black dark:text-white">Timed Passwords</h3>
+              {/* <p className="text-neutral-600 dark:text-neutral-400 text-sm">Store passwords away behind a timed unlock. Helping you beat screen time addictions.</p> */}
+            </div>
+            <div className="w-1/2 aspect-video bg-neutral-200 dark:bg-neutral-800 rounded-lg flex items-center justify-center">
+              <p className="text-xs text-center text-neutral-500 dark:text-neutral-400 px-2">To be announced soon</p>
+            </div>
+          </div>
+          <div className="flex flex-row items-center gap-6">
+            <div className="w-1/2 aspect-video bg-neutral-200 dark:bg-neutral-800 rounded-lg flex items-center justify-center">
+              <p className="text-xs text-center text-neutral-500 dark:text-neutral-400 px-2">To be announced soon</p>
+            </div>
+            <div className="flex flex-col space-y-1 text-right w-1/2">
+              <h3 className="text-xl font-medium text-black dark:text-white">Vyne</h3>
+              {/* <p className="text-neutral-600 dark:text-neutral-400 text-sm">Showcase your music taste by building your own virtual vinyl collection.</p> */}
+            </div>
+          </div>
+          <div className="flex flex-row items-center gap-6">
+            <div className="flex flex-col space-y-1 text-left w-1/2">
+              <h3 className="text-xl font-medium text-black dark:text-white">Morning Money</h3>
+              {/* <p className="text-neutral-600 dark:text-neutral-400 text-sm">Daily AI summary of latest stakeholders news of your market watchlist.</p> */}
+            </div>
+            <div className="w-1/2 aspect-video bg-neutral-200 dark:bg-neutral-800 rounded-lg flex items-center justify-center">
+              <p className="text-xs text-center text-neutral-500 dark:text-neutral-400 px-2">To be announced soon</p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="mt-8">
         <Image
           src="/Personal_Brand_Logo-Light-removebg-preview.png"
