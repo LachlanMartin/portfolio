@@ -8,14 +8,17 @@ export const metaData = {
 };
 
 export const socialLinks = {
-  twitter: "https://x.com/LachlanMartin64/",
-  github: "https://github.com/LachlanMartin/",
-  instagram: "https://www.instagram.com/lachlan_d_martin/",
-  linkedin: "https://www.linkedin.com/in/lachlan-martin-19631b204/",
+  // Professional
   email: "mailto:lachlan.martin64@gmail.com",
-  youtube: "https://www.youtube.com/@LachlanMartinWasTaken",
-  strava: "https://www.strava.com/athletes/142408948",
-  spotify: "https://open.spotify.com/user/rocklock2000",
+  github: "https://github.com/LachlanMartin/",
+  linkedin: "https://www.linkedin.com/in/lachlan-martin-19631b204/",
+  // Social Media
+  instagram: "https://www.instagram.com/lachlan_d_martin/",
   threads: "https://www.threads.com/@lachlan_d_martin",
+  // Content
+  youtube: "https://www.youtube.com/@LachlanMartinWasTaken",
+  // Hobbies
+  spotify: "https://open.spotify.com/user/rocklock2000",
+  strava: "https://www.strava.com/athletes/142408948",
   letterboxd: "https://letterboxd.com/LachlanDMartin/",
 };

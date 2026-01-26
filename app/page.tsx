@@ -40,51 +40,25 @@ export default function Page() {
       </p>
       <header className="mb-8 text-center">
         <div className="flex text-xl gap-4 justify-center transition-opacity duration-300 hover:opacity-90">
-          <SocialLink href={socialLinks.github} icon={FaGithub} />
-          <SocialLink href={socialLinks.instagram} icon={FaInstagram} />
-          <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} />
-          <SocialLink href={socialLinks.youtube} icon={FaYoutube} />
-          <SocialLink href={socialLinks.strava} icon={FaStrava} />
-          <SocialLink href={socialLinks.spotify} icon={FaSpotify} />
-          <SocialLink href={socialLinks.threads} icon={SiThreads} />
-          <SocialLink href={socialLinks.letterboxd} icon={SiLetterboxd} />
+          {/* Professional */}
           <SocialLink href={socialLinks.email} icon={TbMailFilled} />
+          <SocialLink href={socialLinks.github} icon={FaGithub} />
+          <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} />
+          {/* Social Media */}
+          <SocialLink href={socialLinks.instagram} icon={FaInstagram} />
+          <SocialLink href={socialLinks.threads} icon={SiThreads} />
+          {/* Content */}
+          <SocialLink href={socialLinks.youtube} icon={FaYoutube} />
+          {/* Hobbies */}
+          <SocialLink href={socialLinks.spotify} icon={FaSpotify} />
+          <SocialLink href={socialLinks.strava} icon={FaStrava} />
+          <SocialLink href={socialLinks.letterboxd} icon={SiLetterboxd} />
         </div>
       </header>
-      <div className="mt-12 w-full">
-        <div className="flex flex-col gap-16">
-          {/* Text aligns TOWARDS the image for visual cohesion */}
-          {/* Project 1: Image on right → text aligns right (towards image) */}
-          <div className="flex flex-row items-center gap-6">
-            <div className="flex flex-col space-y-1 text-right w-1/2">
-              <h3 className="text-xl font-medium text-black dark:text-white">Timed Passwords</h3>
-              <p className="text-neutral-600 dark:text-neutral-400 text-sm">Store passwords away behind a timed unlock. Helping you beat screen time addictions.</p>
-            </div>
-            <div className="w-1/2 aspect-video bg-neutral-200 dark:bg-neutral-800 rounded-lg flex items-center justify-center">
-              <p className="text-xs text-center text-neutral-500 dark:text-neutral-400 px-2">To be announced soon</p>
-            </div>
-          </div>
-          {/* Project 2: Image on left → text aligns left (towards image) */}
-          <div className="flex flex-row items-center gap-6">
-            <div className="w-1/2 aspect-video bg-neutral-200 dark:bg-neutral-800 rounded-lg flex items-center justify-center">
-              <p className="text-xs text-center text-neutral-500 dark:text-neutral-400 px-2">To be announced soon</p>
-            </div>
-            <div className="flex flex-col space-y-1 text-left w-1/2">
-              <h3 className="text-xl font-medium text-black dark:text-white">Vyne</h3>
-              <p className="text-neutral-600 dark:text-neutral-400 text-sm">Showcase your music taste by building your own virtual vinyl collection.</p>
-            </div>
-          </div>
-          {/* Project 3: Image on right → text aligns right (towards image) */}
-          <div className="flex flex-row items-center gap-6">
-            <div className="flex flex-col space-y-1 text-right w-1/2">
-              <h3 className="text-xl font-medium text-black dark:text-white">Morning Money</h3>
-              <p className="text-neutral-600 dark:text-neutral-400 text-sm">Daily AI summary of latest stakeholders news of your market watchlist.</p>
-            </div>
-            <div className="w-1/2 aspect-video bg-neutral-200 dark:bg-neutral-800 rounded-lg flex items-center justify-center">
-              <p className="text-xs text-center text-neutral-500 dark:text-neutral-400 px-2">To be announced soon</p>
-            </div>
-          </div>
-        </div>
+      <div className="mt-8 flex items-center justify-center min-h-[100px]">
+        <p className="text-neutral-600 dark:text-neutral-400 text-base">
+          Projects coming soon
+        </p>
       </div>
       <div className="mt-8">
         <Image
