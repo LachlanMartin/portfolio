@@ -36,7 +36,7 @@ export default function Page() {
       />
       <h1 className="mb-3 text-4xl font-semibold">{metaData.title}</h1>
       <p className="mb-6 text-neutral-600 dark:text-neutral-400 text-base font-light">
-        DevOps Engineer @ NAB
+        DevOps Engineer
       </p>
       <header className="mb-8 text-center">
         <div className="flex text-xl gap-4 justify-center transition-opacity duration-300 hover:opacity-90">
