@@ -21,4 +21,6 @@ export const socialLinks = {
   spotify: "https://open.spotify.com/user/rocklock2000",
   strava: "https://www.strava.com/athletes/lachlanmartin",
   letterboxd: "https://letterboxd.com/LachlanDMartin/",
+  // Support
+  paypal: "https://paypal.me/LachlanMartin214?locale.x=en_AU&country.x=AU",
 };

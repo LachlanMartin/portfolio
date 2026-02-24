@@ -9,7 +9,7 @@ import {
   FaYoutube,
   FaSpotify,
 } from "react-icons/fa6";
-import { FaStrava } from "react-icons/fa";
+import { FaStrava, FaPaypal } from "react-icons/fa";
 import { TbMailFilled } from "react-icons/tb";
 import { SiThreads, SiLetterboxd } from "react-icons/si";
 
@@ -53,6 +53,7 @@ export default function Page() {
           <SocialLink href={socialLinks.spotify} icon={FaSpotify} />
           <SocialLink href={socialLinks.strava} icon={FaStrava} />
           <SocialLink href={socialLinks.letterboxd} icon={SiLetterboxd} />
+          <SocialLink href={socialLinks.paypal} icon={FaPaypal} />
         </div>
       </header>
       <div className="mt-8 flex items-center justify-center min-h-[100px]">
