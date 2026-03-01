@@ -46,9 +46,9 @@ export default function Page() {
           <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} />
           {/* Social Media */}
           <SocialLink href={socialLinks.instagram} icon={FaInstagram} />
-          <SocialLink href={socialLinks.threads} icon={SiThreads} />
+          {/* <SocialLink href={socialLinks.threads} icon={SiThreads} /> */}
           {/* Content */}
-          <SocialLink href={socialLinks.youtube} icon={FaYoutube} />
+          {/* <SocialLink href={socialLinks.youtube} icon={FaYoutube} /> */}
           {/* Hobbies */}
           <SocialLink href={socialLinks.spotify} icon={FaSpotify} />
           <SocialLink href={socialLinks.strava} icon={FaStrava} />
