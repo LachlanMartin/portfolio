@@ -15,7 +15,12 @@ import { SiThreads, SiLetterboxd } from "react-icons/si";
 
 function SocialLink({ href, icon: Icon }) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:opacity-60 transition-opacity duration-200"
+    >
       <Icon />
     </a>
   );
@@ -39,7 +44,7 @@ export default function Page() {
         DevOps Engineer
       </p>
       <header className="mb-8 text-center">
-        <div className="flex text-xl gap-4 justify-center transition-opacity duration-300 hover:opacity-90">
+        <div className="flex text-xl gap-4 justify-center">
           {/* Professional */}
           <SocialLink href={socialLinks.email} icon={TbMailFilled} />
           <SocialLink href={socialLinks.github} icon={FaGithub} />
