@@ -74,9 +74,15 @@ export default function Page() {
         <h2 className="text-sm font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500">
           Projects
         </h2>
-        {projects.map((project) => (
-          <ProjectShowcase key={project.slug} project={project} />
-        ))}
+        {projects.length > 0 ? (
+          projects.map((project) => (
+            <ProjectShowcase key={project.slug} project={project} />
+          ))
+        ) : (
+          <p className="text-neutral-500 dark:text-neutral-500 text-sm font-light italic">
+            Projects coming soon...
+          </p>
+        )}
       </div>
     </section>
   );
