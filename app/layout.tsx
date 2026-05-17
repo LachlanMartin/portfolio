@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Roboto_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { ThemeProvider, ThemeSwitch } from "./components/theme-switch";
+
 import { metaData } from "./lib/config";
 
 const robotoMono = Roboto_Mono({ subsets: ["latin"] });
@@ -52,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark">
       <head>
         <link
           rel="alternate"
@@ -73,23 +73,12 @@ export default function RootLayout({
           title="JSON Feed"
         />
       </head>
-      <body suppressHydrationWarning className={`${robotoMono.className} antialiased flex flex-col items-center justify-center mx-auto min-h-screen`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-          storageKey="theme-preference"
-        >
-          <div className="fixed top-4 right-4 z-50">
-            <ThemeSwitch />
-          </div>
-          <main className="flex-auto min-w-0 flex flex-col items-center justify-center px-6 sm:px-4 md:px-0 max-w-[624px] w-full py-8">
-            {children}
-            <Analytics />
-            <SpeedInsights />
-          </main>
-        </ThemeProvider>
+      <body className={`${robotoMono.className} antialiased flex flex-col items-center justify-center mx-auto min-h-screen text-neutral-100`}>
+        <main className="flex-auto min-w-0 flex flex-col items-center justify-center px-6 sm:px-4 md:px-0 max-w-[624px] w-full py-8">
+          {children}
+          <Analytics />
+          <SpeedInsights />
+        </main>
       </body>
     </html>
   );

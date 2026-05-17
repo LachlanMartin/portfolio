@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { ProjectShowcase } from "./components/project-showcase";
 import { metaData, socialLinks } from "./lib/config";
+import { projects } from "./lib/projects";
 import {
   FaGithub,
   FaInstagram,
@@ -41,9 +43,16 @@ export default function Page() {
       />
       <h1 className="mb-3 text-4xl font-semibold">{metaData.title}</h1>
       <p className="mb-6 text-neutral-600 dark:text-neutral-400 text-base font-light">
-        DevOps Engineer
+        <span>
+          <span className="font-semibold">DevOps</span>
+          <span className="mx-2 text-neutral-400 dark:text-neutral-500">/</span>
+          <span className="font-semibold">SRE</span>
+          <span className="mx-2 text-neutral-400 dark:text-neutral-500">/</span>
+          <span className="font-semibold">Cloud</span>
+        </span>
+   
       </p>
-      <header className="mb-8 text-center">
+      <header className="mb-6 text-center">
         <div className="flex text-xl gap-4 justify-center">
           {/* Professional */}
           <SocialLink href={socialLinks.email} icon={TbMailFilled} />
@@ -61,10 +70,13 @@ export default function Page() {
           <SocialLink href={socialLinks.paypal} icon={FaPaypal} />
         </div>
       </header>
-      <div className="mt-8 flex items-center justify-center min-h-[100px]">
-        <p className="text-neutral-600 dark:text-neutral-400 text-base">
-          Projects coming soon
-        </p>
+      <div className="mt-6 w-full flex flex-col items-center gap-8">
+        <h2 className="text-sm font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500">
+          Projects
+        </h2>
+        {projects.map((project) => (
+          <ProjectShowcase key={project.slug} project={project} />
+        ))}
       </div>
     </section>
   );
