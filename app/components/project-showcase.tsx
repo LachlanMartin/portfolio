@@ -6,7 +6,6 @@ import type { Project } from "../lib/projects";
 
 type ProjectShowcaseProps = {
   project: Project;
-  /** Seconds between image transitions */
   intervalSec?: number;
 };
 
@@ -15,6 +14,7 @@ export function ProjectShowcase({
   intervalSec = 5,
 }: ProjectShowcaseProps) {
   const [active, setActive] = useState(0);
+
   const images = project.images;
 
   useEffect(() => {
@@ -27,8 +27,11 @@ export function ProjectShowcase({
   }, [images.length, intervalSec]);
 
   return (
-    <article className="w-full max-w-xl text-left rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-neutral-950/40 overflow-hidden shadow-sm">
-      <div className="relative aspect-[16/10] w-full bg-neutral-900">
+    <article
+      id={`project-${project.slug}`}
+      className="w-full max-w-xl text-left rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-neutral-950/40 overflow-hidden shadow-sm"
+    >
+      <div className="relative aspect-video w-full bg-neutral-900">
         {images.map((img, i) => (
           <div
             key={img.src}
@@ -40,7 +43,7 @@ export function ProjectShowcase({
               src={img.src}
               alt={img.alt}
               fill
-              className="object-contain p-8"
+              className="object-contain p-4"
               sizes="(max-width: 640px) 100vw, 36rem"
               priority={i === 0}
             />
@@ -71,11 +74,12 @@ export function ProjectShowcase({
         ) : null}
       </div>
 
-      <div className="p-5 sm:p-6">
-        <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+      <div className="p-5 sm:p-6 space-y-5">
+        <h2 className="text-lg sm:text-xl font-semibold text-neutral-900 dark:text-neutral-100">
           {project.title}
         </h2>
-        <p className="mt-2 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
+
+        <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
           {project.shortDescription}
         </p>
 
@@ -84,20 +88,20 @@ export function ProjectShowcase({
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-1.5 text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 underline underline-offset-4 transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 underline underline-offset-4 transition-colors"
           >
-            Visit site
+            {project.url.includes("github.com") ? "View on GitHub" : "Visit site"}
             <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
           </a>
         ) : null}
 
-        <div className="mt-5">
-          <p className="text-xs font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500 mb-2.5">
+        <div>
+          <p className="text-xs font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500 mb-2">
             Tech
           </p>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2">
             {project.techStack.map(({ name, icon: Icon }) => (
               <span
                 key={name}
@@ -111,11 +115,11 @@ export function ProjectShowcase({
           </div>
         </div>
 
-        <div className="mt-5">
-          <p className="text-xs font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500 mb-2.5">
+        <div>
+          <p className="text-xs font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500 mb-2">
             Skills
           </p>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2">
             {project.skillSections.map((section) => (
               <span
                 key={section.title}
