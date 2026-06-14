@@ -1,8 +1,12 @@
 import type { IconType } from "react-icons";
+import { LuMail, LuTestTubeDiagonal } from "react-icons/lu";
 import {
   SiAwsamplify,
+  SiDocker,
   SiGithubactions,
   SiNextdotjs,
+  SiOllama,
+  SiPnpm,
   SiPostgresql,
   SiPrisma,
   SiSwift,
@@ -19,6 +23,7 @@ export type ProjectSkillSection = {
 export type ProjectTech = {
   name: string;
   icon: IconType;
+  description?: string;
 };
 
 export type Project = {
@@ -34,25 +39,25 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "startline",
-    title: "StartLine",
+    title: "Startline",
     shortDescription:
       "Fitness event discovery for Australia: HYROX, CrossFit, running, and hybrid competitions in one searchable place—with filters by type, state, date, and format plus links to official registration.",
     url: "https://startlineau.com",
     images: [
       {
-        src: "/photos/logo-title-white.png",
-        alt: "StartLine",
+        src: "/photos/startline-logo.svg",
+        alt: "Startline",
       },
     ],
     techStack: [
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "Prisma", icon: SiPrisma },
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "AWS Amplify", icon: SiAwsamplify },
-      { name: "Terraform", icon: SiTerraform },
-      { name: "GitHub Actions", icon: SiGithubactions },
+      { name: "Next.js", icon: SiNextdotjs, description: "App Router with server components, API routes, and middleware for a fast fitness event directory." },
+      { name: "TypeScript", icon: SiTypescript, description: "Full type safety across database queries, API handlers, and React components." },
+      { name: "Tailwind CSS", icon: SiTailwindcss, description: "Custom dark athletic design system with responsive layouts throughout." },
+      { name: "Prisma", icon: SiPrisma, description: "Type-safe ORM with PostgreSQL on AWS RDS for event and user data." },
+      { name: "PostgreSQL", icon: SiPostgresql, description: "Relational database on AWS RDS with production and non-production instances." },
+      { name: "AWS Amplify", icon: SiAwsamplify, description: "Hosting with per-branch configuration, CI/CD, and Terraform-provisioned IAM roles." },
+      { name: "Terraform", icon: SiTerraform, description: "Multi-environment infrastructure provisioning for VPC, RDS, Cognito, Route 53, and OIDC." },
+      { name: "GitHub Actions", icon: SiGithubactions, description: "CI/CD with terraform-plan on PRs and terraform-apply on merge to main." },
     ],
     skillSections: [
       {
@@ -97,6 +102,66 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "the-morning-money",
+    title: "The Morning Money",
+    shortDescription:
+      "Plain-English summaries of ASX announcements for the tickers you watch. Delivered every morning — with zero external accounts required.",
+    url: "https://github.com/LachlanMartin/the-morning-money",
+    images: [
+      {
+        src: "/projects/the-morning-money/favicon.svg",
+        alt: "The Morning Money",
+      },
+    ],
+    techStack: [
+      { name: "Next.js", icon: SiNextdotjs, description: "App Router with React 19 orchestrating ASX ingest, analysis, and email delivery." },
+      { name: "TypeScript", icon: SiTypescript, description: "End-to-end type safety across the full pipeline — database, LLM, and email." },
+      { name: "Tailwind CSS", icon: SiTailwindcss, description: "Utility-first styling with Tailwind CSS 4 for a clean, minimal interface." },
+      { name: "Prisma", icon: SiPrisma, description: "Type-safe ORM with PrismaPg adapter and dual-connection layout for migrations and runtime." },
+      { name: "PostgreSQL", icon: SiPostgresql, description: "Relational database with pgvector extension on PostgreSQL 17." },
+      { name: "Docker", icon: SiDocker, description: "Multi-service orchestration with Compose — app, database, Ollama, Mailpit, and cron sidecar." },
+      { name: "Ollama", icon: SiOllama, description: "Local LLM inference with gemma3:12b for ASX announcement analysis." },
+      { name: "Nodemailer", icon: LuMail, description: "SMTP email delivery for the daily morning digest." },
+      { name: "pnpm", icon: SiPnpm, description: "Fast, disk-efficient package manager with strict dependency resolution." },
+      { name: "Playwright", icon: LuTestTubeDiagonal, description: "E2E tests covering the full ingest-analyse-deliver pipeline." },
+    ],
+    skillSections: [
+      {
+        title: "Product & frontend",
+        items: [
+          "Next.js 16 App Router with React 19 and Tailwind CSS 4 for a clean, responsive UI.",
+          "Local-first UX: clone and docker compose up gives a fully working app with local LLM, local email, and local storage.",
+          "shadcn components with Lucide icons for a polished interface.",
+        ],
+      },
+      {
+        title: "Data & persistence",
+        items: [
+          "Prisma 7 as the data access layer with PostgreSQL 17 and pgvector extension for vector search capabilities.",
+          "Dual connection layout: DIRECT_URL for migrations, DATABASE_URL for runtime queries via PrismaPg adapter.",
+          "Announcements deduplicated by sourceHash; at most one email per user/day via DigestRun unique constraint.",
+        ],
+      },
+      {
+        title: "Local LLM pipeline",
+        items: [
+          "Ollama with gemma3:12b for local ASX announcement analysis — summary, sentiment, and directional insight.",
+          "Daily digest pipeline: ingest PDFs from ASX, analyse via Ollama, compose digest, deliver via email.",
+          "Cost efficient: one analysis per announcement, not per user — capped at O(announcements).",
+        ],
+      },
+      {
+        title: "Email & automation",
+        items: [
+          "Nodemailer for SMTP delivery in production; Mailpit captures and inspects all outbound email in development.",
+          "Cron sidecar triggers the digest pipeline weekdays at 10am AEST, with manual trigger via shell script.",
+          "Idempotent pipeline design prevents duplicate emails via unique constraints and sourceHash deduplication.",
+          "Playwright e2e tests and Vitest unit tests ensure reliability across ingest, analysis, and delivery.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "onedisplay",
     title: "OneDisplay",
     shortDescription:
@@ -109,7 +174,7 @@ export const projects: Project[] = [
       },
     ],
     techStack: [
-      { name: "Swift", icon: SiSwift },
+      { name: "Swift", icon: SiSwift, description: "Native macOS menu bar app using AppKit, SwiftUI, and CGDisplayCapture for display management." },
     ],
     skillSections: [
       {
