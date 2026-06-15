@@ -2,6 +2,7 @@ import type { IconType } from "react-icons";
 import { LuMail, LuTestTubeDiagonal } from "react-icons/lu";
 import {
   SiAwsamplify,
+  SiCloudflare,
   SiDocker,
   SiGithubactions,
   SiNextdotjs,
@@ -58,6 +59,7 @@ export const projects: Project[] = [
       { name: "AWS Amplify", icon: SiAwsamplify, description: "Hosting with per-branch configuration, CI/CD, and Terraform-provisioned IAM roles." },
       { name: "Terraform", icon: SiTerraform, description: "Multi-environment infrastructure provisioning for VPC, RDS, Cognito, Route 53, and OIDC." },
       { name: "GitHub Actions", icon: SiGithubactions, description: "CI/CD with terraform-plan on PRs and terraform-apply on merge to main." },
+      { name: "Cloudflare", icon: SiCloudflare, description: "DNS, CDN, and SSL/TLS for startlineau.com with proxy and security rules." },
     ],
     skillSections: [
       {
