@@ -52,7 +52,6 @@ export const projects: Project[] = [
     title: "Startline",
     shortDescription:
       "Fitness event discovery for Australia: HYROX, CrossFit, running, and hybrid competitions in one searchable place—with filters by type, state, date, and format plus links to official registration.",
-    url: "https://startlineau.com",
     githubUrl: "https://github.com/StartlineAU/startline",
     images: [
       {

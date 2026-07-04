@@ -12,6 +12,7 @@ import {
   FaSpotify,
 } from "react-icons/fa6";
 import { FaStrava, FaPaypal } from "react-icons/fa";
+import { FaFileArrowDown } from "react-icons/fa6";
 import { TbMailFilled } from "react-icons/tb";
 import { SiLetterboxd } from "react-icons/si";
 
@@ -76,6 +77,14 @@ export default function Page() {
           <SocialLink href={socialLinks.strava} icon={FaStrava} />
           <SocialLink href={socialLinks.letterboxd} icon={SiLetterboxd} />
           <SocialLink href={socialLinks.paypal} icon={FaPaypal} />
+          <a
+            href="/resume.pdf"
+            download
+            className="hover:opacity-60 transition-opacity duration-200"
+            aria-label="Download resume"
+          >
+            <FaFileArrowDown />
+          </a>
         </div>
       </header>
 
