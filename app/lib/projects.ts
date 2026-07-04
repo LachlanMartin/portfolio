@@ -40,6 +40,7 @@ export type Project = {
   title: string;
   shortDescription: string;
   url?: string;
+  githubUrl?: string;
   images: { src: string; alt: string }[];
   techStack: ProjectTech[];
   skillSections: ProjectSkillSection[];
@@ -52,6 +53,7 @@ export const projects: Project[] = [
     shortDescription:
       "Fitness event discovery for Australia: HYROX, CrossFit, running, and hybrid competitions in one searchable place—with filters by type, state, date, and format plus links to official registration.",
     url: "https://startlineau.com",
+    githubUrl: "https://github.com/StartlineAU/startline",
     images: [
       {
         src: "/photos/startline-logo.svg",
