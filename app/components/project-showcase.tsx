@@ -102,15 +102,16 @@ export function ProjectShowcase({
         {images.map((img, i) => (
           <div
             key={img.src}
-            className="absolute inset-0 transition-opacity duration-700 ease-in-out"
+            className="absolute inset-0 flex items-center justify-center p-4 transition-opacity duration-700 ease-in-out"
             style={{ opacity: i === active ? 1 : 0 }}
             aria-hidden={i !== active}
           >
             <Image
               src={img.src}
               alt={img.alt}
-              fill
-              className="object-contain p-4"
+              width={800}
+              height={800}
+              className="max-h-full max-w-full h-auto w-auto object-contain rounded-lg"
               sizes="(max-width: 640px) 100vw, 36rem"
               priority={i === 0}
             />

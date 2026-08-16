@@ -6,10 +6,12 @@ import {
   SiAmazonrds,
   SiAmazonroute53,
   SiAmazons3,
+  SiAstro,
   SiAwsamplify,
   SiAwssecretsmanager,
   SiCloudflare,
   SiDocker,
+  SiDrizzle,
   SiGithubactions,
   SiResend,
   SiStripe,
@@ -22,6 +24,7 @@ import {
   SiTailwindcss,
   SiTerraform,
   SiTypescript,
+  SiVercel,
 } from "react-icons/si";
 
 export type ProjectSkillSection = {
@@ -219,6 +222,63 @@ export const projects: Project[] = [
           "Pure Swift — zero external dependencies.",
           "Makefile-based build system with targets for build, bundle, run, and icon generation.",
           "MIT licensed, supports Apple Silicon and Intel Macs on macOS 13+.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "winnie-and-co",
+    title: "Winnie & Co Dog Grooming",
+    shortDescription:
+      "Booking + invoicing website for Winnie & Co, a mobile dog grooming business in Berwick, VIC. Customers pick a service and dog size, book a slot that respects working hours and blockouts, and owners approve bookings and manage invoices from /admin.",
+    githubUrl: "https://github.com/LachlanMartin/winnie-and-co-dog-grooming",
+    images: [
+      {
+        src: "/projects/winnie-and-co/logo.png",
+        alt: "Winnie & Co Dog Grooming",
+      },
+    ],
+    techStack: [
+      { name: "Astro", icon: SiAstro, description: "Astro 7 with SSR and @astrojs/vercel for a fast, content-driven public site plus API routes." },
+      { name: "TypeScript", icon: SiTypescript, description: "Full type safety across routes, the availability engine, auth, and Drizzle queries." },
+      { name: "Tailwind CSS", icon: SiTailwindcss, description: "Tailwind CSS v4 for a clean, responsive design across the public site and admin." },
+      { name: "Drizzle ORM", icon: SiDrizzle, description: "Type-safe ORM with schema, migrations, and seed for bookings, invoices, and settings." },
+      { name: "PostgreSQL", icon: SiPostgresql, description: "Relational database on Neon (or local Docker) holding services, bookings, invoices, and working hours." },
+      { name: "Resend", icon: SiResend, description: "Transactional email for request-received, booking alerts, confirmations, and invoice links." },
+      { name: "Docker", icon: SiDocker, description: "docker compose for a local Postgres during development." },
+      { name: "Vercel", icon: SiVercel, description: "SSR hosting via @astrojs/vercel with env-managed secrets and migrations." },
+    ],
+    skillSections: [
+      {
+        title: "Booking & scheduling",
+        items: [
+          "Booking wizard: service → dog size → day → free slot → dog/contact details, as a multi-step flow.",
+          "Slots respect the owner's working hours, the biweekly Saturday rule, one-off blockouts, and existing bookings.",
+          "Double-booking prevented by a partial unique index on live bookings' slot_start plus a server-side overlap re-check.",
+        ],
+      },
+      {
+        title: "Owner approval & admin",
+        items: [
+          "Bookings land `pending`; the owner approves or declines them from `/admin`, and approved bookings trigger a confirmation email.",
+          "Availability admin for weekly hours, the biweekly Saturday anchor, and one-off day/time blocks.",
+          "Cookie-session auth (`ADMIN_SECRET`) protecting all `/admin` routes and API endpoints.",
+        ],
+      },
+      {
+        title: "Invoicing",
+        items: [
+          "Each approved booking auto-generates a draft invoice from service price, add-ons, and travel.",
+          "Line-by-line editing in `/admin/invoices/[id]`, with statuses draft → sent → paid.",
+          "Customers get an emailed link to a printable invoice page; payment happens offline via the owner's bank details.",
+        ],
+      },
+      {
+        title: "Data & persistence",
+        items: [
+          "Drizzle schema covering services (per-size prices + durations), addons, working_hours, blockouts, bookings, invoices, invoice_items, and settings.",
+          "Seeded services, add-ons, and working hours; the biweekly-Saturday anchor and bank details are editable in `/admin`.",
+          "Money and timezone helpers keep pricing and AEST slot calculations correct.",
         ],
       },
     ],
