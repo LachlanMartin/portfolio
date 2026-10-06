@@ -22,7 +22,7 @@ function SocialLink({ href, icon: Icon }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="hover:opacity-60 transition-opacity duration-200"
+            className="hover:opacity-60 transition-opacity duration-200 drop-shadow-[0_1px_3px_rgba(0,0,0,0.7)]"
     >
       <Icon />
     </a>
@@ -80,7 +80,7 @@ export default function Page() {
           <a
             href="/resume.pdf"
             download
-            className="hover:opacity-60 transition-opacity duration-200"
+      className="hover:opacity-60 transition-opacity duration-200 drop-shadow-[0_1px_3px_rgba(0,0,0,0.7)]"
             aria-label="Download resume"
           >
             <FaFileArrowDown />
