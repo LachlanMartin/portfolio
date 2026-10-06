@@ -192,7 +192,7 @@ table {
   height: 26rem;
   top: -10rem;
   left: -8rem;
-  background: #ffffff;
+  background: #e5e5e5;
   opacity: 0.6;
   animation: aurora-1 16s ease-in-out infinite alternate;
 }
@@ -202,7 +202,7 @@ table {
   height: 22rem;
   bottom: -12rem;
   right: -10rem;
-  background: #d4d4d4;
+  background: #bdbdbd;
   opacity: 0.5;
   animation: aurora-2 20s ease-in-out infinite alternate;
 }
@@ -212,7 +212,7 @@ table {
   height: 18rem;
   top: 20%;
   left: 55%;
-  background: #a3a3a3;
+  background: #8f8f8f;
   opacity: 0.45;
   animation: aurora-3 13s ease-in-out infinite alternate;
 }
