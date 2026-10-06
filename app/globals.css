@@ -182,14 +182,14 @@ table {
   position: absolute;
   display: block;
   border-radius: 50%;
-  filter: blur(90px);
+  filter: blur(72px);
   mix-blend-mode: screen;
   will-change: transform;
 }
 
 .bg-blob-1 {
-  width: 38rem;
-  height: 38rem;
+  width: 26rem;
+  height: 26rem;
   top: -10rem;
   left: -8rem;
   background: #ffffff;
@@ -198,8 +198,8 @@ table {
 }
 
 .bg-blob-2 {
-  width: 32rem;
-  height: 32rem;
+  width: 22rem;
+  height: 22rem;
   bottom: -12rem;
   right: -10rem;
   background: #d4d4d4;
@@ -208,8 +208,8 @@ table {
 }
 
 .bg-blob-3 {
-  width: 26rem;
-  height: 26rem;
+  width: 18rem;
+  height: 18rem;
   top: 20%;
   left: 55%;
   background: #a3a3a3;
@@ -247,6 +247,34 @@ table {
 @media (prefers-reduced-motion: reduce) {
   .bg-blob {
     animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .bg-blob {
+    filter: blur(60px);
+  }
+
+  .bg-blob-1 {
+    width: 16rem;
+    height: 16rem;
+    opacity: 0.4;
+  }
+
+  .bg-blob-2 {
+    width: 14rem;
+    height: 14rem;
+    opacity: 0.32;
+  }
+
+  .bg-blob-3 {
+    width: 11rem;
+    height: 11rem;
+    opacity: 0.28;
+  }
+
+  .bg-aurora::after {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
   }
 }
 
