@@ -49,7 +49,7 @@ export default function Page() {
       <Image
         src="/profile.png"
         alt="Profile photo"
-        className="w-32 h-32 rounded-full object-cover object-center bg-gray-100 mb-6"
+        className="w-32 h-32 rounded-full object-cover object-center bg-gray-100 mb-6 shadow-xl"
         unoptimized
         width={128}
         height={128}
