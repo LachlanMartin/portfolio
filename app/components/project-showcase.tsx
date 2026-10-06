@@ -6,7 +6,6 @@ import type { Project } from "../lib/projects";
 
 type ProjectShowcaseProps = {
   project: Project;
-  intervalSec?: number;
 };
 
 function ExpandableContent({ expanded, children }: { expanded: boolean; children: React.ReactNode }) {
@@ -34,26 +33,11 @@ function ExpandableContent({ expanded, children }: { expanded: boolean; children
   );
 }
 
-export function ProjectShowcase({
-  project,
-  intervalSec = 5,
-}: ProjectShowcaseProps) {
-  const [active, setActive] = useState(0);
+export function ProjectShowcase({ project }: ProjectShowcaseProps) {
   const [expandedTech, setExpandedTech] = useState<string | null>(null);
   const [expandedSkill, setExpandedSkill] = useState<string | null>(null);
   const techTimeout = useRef<ReturnType<typeof setTimeout>>(undefined);
   const skillTimeout = useRef<ReturnType<typeof setTimeout>>(undefined);
-
-  const images = project.images;
-
-  useEffect(() => {
-    if (images.length <= 1) return;
-    const ms = Math.max(2, intervalSec) * 1000;
-    const id = window.setInterval(() => {
-      setActive((i) => (i + 1) % images.length);
-    }, ms);
-    return () => window.clearInterval(id);
-  }, [images.length, intervalSec]);
 
   function toggleTech(name: string) {
     clearTimeout(techTimeout.current);
@@ -92,92 +76,53 @@ export function ProjectShowcase({
       id={`project-${project.slug}`}
       className="w-full max-w-xl text-left rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-neutral-950/40 overflow-hidden shadow-sm"
     >
-      <div
-        className="relative aspect-video w-full bg-neutral-950"
-        style={{
-          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)",
-          backgroundSize: "16px 16px",
-        }}
-      >
-        {images.map((img, i) => (
-          <div
-            key={img.src}
-            className="absolute inset-0 flex items-center justify-center p-4 transition-opacity duration-700 ease-in-out"
-            style={{ opacity: i === active ? 1 : 0 }}
-            aria-hidden={i !== active}
-          >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              width={800}
-              height={800}
-              className="max-h-full max-w-full h-auto w-auto object-contain rounded-lg"
-              sizes="(max-width: 640px) 100vw, 36rem"
-              priority={i === 0}
-            />
-          </div>
-        ))}
-        {images.length > 1 ? (
-          <div
-            className="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5"
-            role="tablist"
-            aria-label="Project images"
-          >
-            {images.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                role="tab"
-                aria-selected={i === active}
-                aria-label={`Show image ${i + 1}`}
-                onClick={() => setActive(i)}
-                className={`h-1.5 rounded-full transition-all ${
-                  i === active
-                    ? "w-6 bg-white"
-                    : "w-1.5 bg-white/50 hover:bg-white/80"
-                }`}
-              />
-            ))}
-          </div>
-        ) : null}
-      </div>
-
       <div className="p-5 sm:p-6 space-y-5">
-        <div className="flex items-baseline gap-3">
-          <h2 className="text-lg sm:text-xl font-semibold text-neutral-900 dark:text-neutral-100">
-            {project.title}
-          </h2>
-          {project.url ? (
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 underline underline-offset-4 transition-colors shrink-0"
-            >
-              {project.url.includes("github.com") ? "GitHub" : "Site"}
-              <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-          ) : null}
-          {project.githubUrl ? (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 underline underline-offset-4 transition-colors shrink-0"
-            >
-              GitHub
-              <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-          ) : null}
+        <div className="flex items-start gap-4 sm:gap-5">
+          <Image
+            src={project.images[0].src}
+            alt={project.images[0].alt}
+            width={128}
+            height={128}
+            className="h-14 w-14 sm:h-16 sm:w-16 shrink-0 rounded-lg object-contain bg-neutral-100 dark:bg-neutral-800/60 p-1"
+            sizes="64px"
+          />
+          <div className="min-w-0 space-y-1.5">
+            <div className="flex items-baseline gap-3 flex-wrap">
+              <h2 className="text-lg sm:text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+                {project.title}
+              </h2>
+              {project.url ? (
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 underline underline-offset-4 transition-colors shrink-0"
+                >
+                  {project.url.includes("github.com") ? "GitHub" : "Site"}
+                  <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              ) : null}
+              {project.githubUrl ? (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 underline underline-offset-4 transition-colors shrink-0"
+                >
+                  GitHub
+                  <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              ) : null}
+            </div>
+            <p className="text-sm text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
+              {project.shortDescription}
+            </p>
+          </div>
         </div>
-
-        <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
-          {project.shortDescription}
-        </p>
 
         <div>
           <p className="text-xs font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500 mb-2">
