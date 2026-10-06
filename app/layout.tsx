@@ -40,9 +40,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
   icons: {
-    icon: [
-      { url: "/square-white.svg", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/favicon.png", type: "image/png" }],
+    apple: [{ url: "/favicon.png", type: "image/png" }],
   },
 };
 
