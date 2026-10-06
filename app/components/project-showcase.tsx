@@ -77,8 +77,8 @@ export function ProjectShowcase({ project }: ProjectShowcaseProps) {
       className="w-full max-w-xl text-left rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-neutral-950/40 overflow-hidden shadow-xl"
     >
       <div className="p-5 sm:p-6 space-y-5">
-        <div className="flex items-center gap-4 sm:gap-5">
-          <div className="w-1/4 shrink-0">
+        <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-center sm:gap-5 sm:text-left">
+          <div className="w-16 shrink-0 sm:w-1/4">
             <div className="w-full aspect-square rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-800/60">
               <Image
                 src={project.images[0].src}
@@ -86,12 +86,12 @@ export function ProjectShowcase({ project }: ProjectShowcaseProps) {
                 width={256}
                 height={256}
                 className="w-full h-full object-contain"
-                sizes="(max-width: 640px) 25vw, 132px"
+                sizes="(max-width: 640px) 64px, 132px"
               />
             </div>
           </div>
-          <div className="flex-1 min-w-0 space-y-1.5">
-            <div className="flex items-baseline gap-3 flex-wrap">
+          <div className="w-full min-w-0 space-y-1.5 sm:w-auto sm:flex-1">
+            <div className="flex items-baseline gap-3 flex-wrap justify-center sm:justify-start">
               <h2 className="text-lg sm:text-xl font-semibold text-neutral-900 dark:text-neutral-100">
                 {project.title}
               </h2>
