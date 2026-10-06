@@ -74,7 +74,7 @@ export function ProjectShowcase({ project }: ProjectShowcaseProps) {
   return (
     <article
       id={`project-${project.slug}`}
-      className="w-full max-w-xl text-left rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-neutral-950/40 backdrop-blur-xl overflow-hidden shadow-sm"
+      className="w-full max-w-xl text-left rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-neutral-950/40 overflow-hidden shadow-sm"
     >
       <div className="p-5 sm:p-6 space-y-5">
         <div className="flex items-center gap-4 sm:gap-5">
