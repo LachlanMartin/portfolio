@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { metaData } from "./lib/config";
+import { AuroraBackground } from "./components/aurora-background";
 
 const robotoMono = Roboto_Mono({ subsets: ["latin"] });
 
@@ -73,11 +74,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${robotoMono.className} antialiased flex flex-col items-center justify-center mx-auto min-h-screen text-neutral-100`}>
-        <div aria-hidden className="bg-aurora">
-          <span className="bg-blob bg-blob-1" />
-          <span className="bg-blob bg-blob-2" />
-          <span className="bg-blob bg-blob-3" />
-        </div>
+        <AuroraBackground />
         <main className="relative flex-auto min-w-0 flex flex-col items-center justify-center px-6 sm:px-4 md:px-0 max-w-[624px] w-full py-8">
           {children}
           <Analytics />
