@@ -57,7 +57,7 @@ export default function Page() {
         style={{ objectPosition: '50% 30%' }}
       />
       <h1 className="mb-3 text-4xl font-semibold">{metaData.title}</h1>
-      <p className="mb-6 text-neutral-600 dark:text-neutral-400 text-base font-light">
+      <p className="mb-6 text-neutral-600 dark:text-neutral-200 text-base font-light">
         <span>
           <span className="font-semibold">DevOps</span>
           <span className="mx-2 text-neutral-400 dark:text-neutral-500">/</span>
@@ -89,7 +89,7 @@ export default function Page() {
       </header>
 
       <div className="mt-6 w-full flex flex-col items-center gap-8">
-        <h2 className="text-sm font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-500">
+        <h2 className="text-sm font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-300">
           Projects
         </h2>
         {projects.map((project) => (
