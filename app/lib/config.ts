@@ -1,5 +1,5 @@
 export const metaData = {
-  baseUrl: "https://nextfolio-template.vercel.app/", // Needs to be updated once I buy a domain
+  baseUrl: "https://www.lachlanmartin.dev/",
   title: "Lachlan Martin",
   name: "Lachlan Martin",
   ogImage: "/portfolio-initials.png",
