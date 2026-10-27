@@ -14,7 +14,6 @@ export const socialLinks = {
   linkedin: "https://www.linkedin.com/in/lachlan-martin-19631b204/",
   // Social Media
   instagram: "https://www.instagram.com/lachlan_d_martin/",
-  threads: "https://www.threads.com/@lachlan_d_martin",
   // Content
   youtube: "https://www.youtube.com/@LachlanMartinWasTaken",
   // Hobbies

@@ -14,7 +14,7 @@ import {
 import { FaStrava, FaPaypal } from "react-icons/fa";
 import { FaFileArrowDown } from "react-icons/fa6";
 import { TbMailFilled } from "react-icons/tb";
-import { SiLetterboxd, SiThreads } from "react-icons/si";
+import { SiLetterboxd } from "react-icons/si";
 
 function SocialLink({ href, icon: Icon }) {
   return (
@@ -73,7 +73,6 @@ export default function Page() {
           <SocialLink href={socialLinks.github} icon={FaGithub} />
           <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} />
           <SocialLink href={socialLinks.instagram} icon={FaInstagram} />
-          <SocialLink href={socialLinks.threads} icon={SiThreads} />
           <SocialLink href={socialLinks.spotify} icon={FaSpotify} />
           <SocialLink href={socialLinks.strava} icon={FaStrava} />
           <SocialLink href={socialLinks.letterboxd} icon={SiLetterboxd} />
